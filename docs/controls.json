@@ -1,0 +1,602 @@
+[
+  {
+    "title": "Borrow, act, return",
+    "note": "Balanced counts cannot start. Extra helper counts make the goal reachable.",
+    "input": {
+      "version": 1,
+      "places": 3,
+      "initial": [
+        0,
+        0,
+        2
+      ],
+      "goal": [
+        0,
+        1,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0,
+            1
+          ],
+          "post": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            0,
+            1
+          ],
+          "post": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "pre": [
+            1,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        1,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "title": "Count the helpers",
+    "note": "The same net, now supplying the executable three-transition multiset.",
+    "input": {
+      "version": 1,
+      "places": 3,
+      "initial": [
+        0,
+        0,
+        2
+      ],
+      "goal": [
+        0,
+        1,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0,
+            1
+          ],
+          "post": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            0,
+            1
+          ],
+          "post": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "pre": [
+            1,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "title": "No helper exists",
+    "note": "Balanced but blocked forever; the full graph certifies unreachability.",
+    "input": {
+      "version": 1,
+      "places": 3,
+      "initial": [
+        0,
+        0,
+        2
+      ],
+      "goal": [
+        0,
+        1,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0,
+            1
+          ],
+          "post": [
+            1,
+            1,
+            0
+          ]
+        }
+      ],
+      "counts": [
+        1
+      ]
+    }
+  },
+  {
+    "title": "Order matters",
+    "note": "Both transitions are needed; only one ordering can start.",
+    "input": {
+      "version": 1,
+      "places": 3,
+      "initial": [
+        1,
+        0,
+        0
+      ],
+      "goal": [
+        0,
+        0,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            1,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "title": "Independent orders",
+    "note": "Two resource transfers commute; two shortest sequences survive.",
+    "input": {
+      "version": 1,
+      "places": 4,
+      "initial": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "title": "Duplicate identities",
+    "note": "Equal arcs are separate transition IDs, not one merged action.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0
+          ],
+          "post": [
+            0,
+            1
+          ]
+        },
+        {
+          "pre": [
+            1,
+            0
+          ],
+          "post": [
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        1,
+        0
+      ]
+    }
+  },
+  {
+    "title": "Weight-two guard",
+    "note": "Enough total tokens is not enough at the required place.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        1
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "transitions": [
+        {
+          "pre": [
+            2,
+            0
+          ],
+          "post": [
+            0,
+            2
+          ]
+        }
+      ],
+      "counts": [
+        1
+      ]
+    }
+  },
+  {
+    "title": "Goal already held",
+    "note": "A zero-length shortest plan does not forbid later movement.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        0
+      ],
+      "goal": [
+        1,
+        0
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0
+          ],
+          "post": [
+            0,
+            1
+          ]
+        },
+        {
+          "pre": [
+            0,
+            1
+          ],
+          "post": [
+            1,
+            0
+          ]
+        }
+      ],
+      "counts": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "title": "Conservation failure",
+    "note": "The desired total differs; no sequence can reach it.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        2
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0
+          ],
+          "post": [
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        1
+      ]
+    }
+  },
+  {
+    "title": "Stalling is not deadlock",
+    "note": "An enabled no-op is still a move, but never reaches the goal.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0
+          ],
+          "post": [
+            1,
+            0
+          ]
+        }
+      ],
+      "counts": [
+        3
+      ]
+    }
+  },
+  {
+    "title": "Zero-token vacuum",
+    "note": "A zero-arc transition is enabled, even with no tokens.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        0,
+        0
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "transitions": [
+        {
+          "pre": [
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0
+          ]
+        }
+      ],
+      "counts": [
+        3
+      ]
+    }
+  },
+  {
+    "title": "Empty net",
+    "note": "No actions; the empty multiset executes but reaches the wrong goal.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "transitions": [],
+      "counts": []
+    }
+  },
+  {
+    "title": "Eight-count boundary",
+    "note": "All eight-ID words are legal. Repetitions are indistinguishable.",
+    "input": {
+      "version": 1,
+      "places": 4,
+      "initial": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "goal": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "transitions": [
+        {
+          "pre": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "pre": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "post": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "counts": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "title": "Negative algebraic row",
+    "note": "Net effects can promise a negative token count; those rows are not markings.",
+    "input": {
+      "version": 1,
+      "places": 2,
+      "initial": [
+        1,
+        0
+      ],
+      "goal": [
+        0,
+        1
+      ],
+      "transitions": [
+        {
+          "pre": [
+            1,
+            0
+          ],
+          "post": [
+            0,
+            1
+          ]
+        }
+      ],
+      "counts": [
+        3
+      ]
+    }
+  }
+]
